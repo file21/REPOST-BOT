@@ -11,23 +11,23 @@ id_pattern = re.compile(r"^(\d{9,10}(\s\d{9,10})*)?$")
 
 class Config:
     #Bot token @Botfather, --⚠️ REQUIRED--
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1803592087:AAEq6XuYbtp2gu24ngvLZowbNl1E5MI5fYY")
 
     #Your API ID from my.telegram.org, --⚠️ REQUIRED--
-    APP_ID = int(os.environ.get("APP_ID", ""))
+    APP_ID = int(os.environ.get("APP_ID", "29695456"))
 
     #Your API Hash from my.telegram.org, --⚠️ REQUIRED--
-    API_HASH = os.environ.get("API_HASH", "")
+    API_HASH = os.environ.get("API_HASH", "cf8c41e0b0c9bfc2edc17f00fe1b4722")
 
     #Your db channel Id --⚠️ REQUIRED--
-    DB_CHANNEL_ID = int(os.environ.get("DB_CHANNEL_ID", ""))
+    DB_CHANNEL_ID = int(os.environ.get("DB_CHANNEL_ID", "-1001685956766"))
 
     #OWNER ID --⚠️ REQUIRED--
-    OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+    OWNER_ID = int(os.environ.get("OWNER_ID", ""730412993))
     
     #ADMIN ID -- Optional if Owner is going to use the bot solely.
     # If you wish to add admin ids, then add like e.g "id1 id2 .....idn"
-    ADMIN_IDS = os.environ.get("ADMIN_IDS", "730412993") #e.g "123456789 134251615" else leave it as it is
+    ADMIN_IDS = os.environ.get("ADMIN_IDS", "1479698886 7005745979 6419797984 6059447655") #e.g "123456789 134251615" else leave it as it is
 
     #Port
     PORT = os.environ.get("PORT", "8001")
