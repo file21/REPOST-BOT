@@ -1,0 +1,15 @@
+# --- For-Bot-Working --------- #
+pyrogram 
+TgCrypto 
+pyromod==1.5
+
+# --- For-Web-Response ------- #
+aiohttp 
+
+# --- Advance-Format --- #
+pyrofork
+
+# --- For asynchronous file operation --- #
+aiofiles
+
+
