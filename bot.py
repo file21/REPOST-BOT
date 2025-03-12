@@ -49,7 +49,7 @@ class Bot(Client):
             
         except Exception as e:
             self.LOGGER(__name__).warning(e)
-            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel and have proper Permissions, So Double check the CHANNEL_ID Value, Current Value {cfg.DB_CHANNEL_ID}")
+            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel and have proper Permissions, So Double check the DB_CHANNEL_ID Value, Current Value {cfg.DB_CHANNEL_ID}")
             self.LOGGER(__name__).info('Bot Stopped..')
             sys.exit()
 
