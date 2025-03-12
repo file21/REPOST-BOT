@@ -173,7 +173,7 @@ async def re_post_messages(client: Client, message: Message, bot_username: str, 
     all_files_link = await generate_link(client, bot_username, posted_first_msg_id, posted_last_msg_id)
     new_files_link = await generate_link(client, bot_username, new_first_msg_id, new_last_msg_id)
     
-    season_txt, latest_episode_txt = "SEASON", "LATEST EPISODE"
+    season_txt, latest_episode_txt = "SEASON", "LATEST EPISODE ONLY"
     
     reply_msg = f"""{season_txt} - {all_files_link}\n{latest_episode_txt} - {new_files_link}"""
 
