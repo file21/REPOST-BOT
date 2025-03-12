@@ -23,7 +23,7 @@ class Config:
     DB_CHANNEL_ID = int(os.environ.get("DB_CHANNEL_ID", "-1001685956766"))
 
     #OWNER ID --⚠️ REQUIRED--
-    OWNER_ID = int(os.environ.get("OWNER_ID", ""730412993))
+    OWNER_ID = int(os.environ.get("OWNER_ID", "730412993"))
     
     #ADMIN ID -- Optional if Owner is going to use the bot solely.
     # If you wish to add admin ids, then add like e.g "id1 id2 .....idn"
