@@ -64,8 +64,20 @@ class Bot(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, cfg.PORT).start()
 
-        try: await self.send_message(cfg.OWNER_ID, text = f"<b><blockquote>🤖 Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ ♻️</blockquote></b>")
-        except: pass     
+        await self.send_restart_msg()
+
+
+    async def send_restart_msg(self):
+        text = f"<b><blockquote>🤖 Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ ♻️</blockquote></b>"
+        try:
+            for _id in [self.owner.id, self.dev.id] :
+                try:
+                    await self.send_message(_id, text)
+                except:
+                    pass
+        except: 
+            pass
+            
     
     async def load_users_data(self):
         try:
