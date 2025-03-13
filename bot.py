@@ -70,7 +70,7 @@ class Bot(Client):
     async def send_restart_msg(self):
         text = f"<b><blockquote>🤖 Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ ♻️</blockquote></b>"
         try:
-            for _id in [self.owner.id, self.dev.id] :
+            for _id in {self.owner.id, self.dev.id} :
                 try:
                     await self.send_message(_id, text)
                 except:
