@@ -131,7 +131,7 @@ async def copy_message(client:Client, message:Message):
         await asyncio.sleep(0.5)
         
     except FloodWait as e:
-        await asyncio.sleep(e.x)
+        await asyncio.sleep(e.value)
         post_msg = await message.copy(chat_id=client.db_channel.id, disable_notification=True)
         await asyncio.sleep(0.5)
     
