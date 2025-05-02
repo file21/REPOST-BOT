@@ -28,7 +28,7 @@ CLOSE_MARKUP = InlineKeyboardMarkup([[CLOSE_BUTTON]])
 #=========================================================================================================
 
 
-async def create_replyMarkup(message: Message, text:str, keyboard_txt:str=CANCEL_TXT):
+async def create_replyMarkup(message: Message, text:str, keyboard_txt:str=CANCEL_TXT) -> Message:
     return await message.reply(
         text=text,
         disable_web_page_preview=True,
@@ -62,7 +62,7 @@ async def make_inline_buttons(text: str) -> ReplyKeyboardMarkup:
     return InlineKeyboardMarkup(inline_buttons)
 
 
-async def get_posted_messages(client:Client, encode_msg:str):
+async def get_posted_messages(client:Client, encode_msg:str) -> Message:
                 
     if not len(encode_msg)>7:
         return
@@ -118,13 +118,6 @@ async def generate_link(client: Client, bot_username: str, first_msg_id:int, las
 
 
 async def copy_message(client:Client, message:Message):
-    """try:
-        post_msg = await msg.copy(chat_id=client.db_channel.id, disable_notification=True)
-        await asyncio.sleep(0.5)
-    except FloodWait as e:
-        await asyncio.sleep(e.x)
-        post_msg = await msg.copy(chat_id=client.db_channel.id, disable_notification=True)
-        await asyncio.sleep(0.5)"""
     
     try:
         post_msg = await message.copy(chat_id=client.db_channel.id, disable_notification=True)
@@ -271,28 +264,29 @@ async def re_post_command(client: Client, message: Message):
         else:            
             link = validate_link.fullmatch(response.text)
             
-            if link:
-                await msg_reply.delete()
-                await response.delete()
-                
-                bot_username, encode_msg = link.group(1), link.group(2)
-
-                postd_msgs = await get_posted_messages(client, encode_msg)
-                
-                new_msgs = await collect_user_files(client, message)
-                
-                if not postd_msgs or not new_msgs:
-                    temp = await message.reply("**Oᴘᴇʀᴀᴛɪᴏɴ ʜᴀʟᴛᴇᴅ...**")
-                    await asyncio.sleep(5)
-                    await temp.delete()
-                    
-                    return
-                
-                await re_post_messages(client, message, bot_username, postd_msgs, new_msgs)
-                
-                return
-            
-            else:
+            if not link:
                 await response.reply("**__Sᴇɴᴅ ᴀ ᴠᴀʟɪᴅ ᴘᴏsᴛ ʟɪɴᴋ__**", quote=True, reply_markup=CLOSE_MARKUP)
                 
                 continue
+            
+            
+            await msg_reply.delete()
+            await response.delete()
+            
+            bot_username, encode_msg = link.group(1), link.group(2)
+
+            posted_msgs = await get_posted_messages(client, encode_msg)
+            
+            new_msgs = await collect_user_files(client, message)
+            
+            if not posted_msgs or not new_msgs:
+                temp = await message.reply("**Oᴘᴇʀᴀᴛɪᴏɴ ʜᴀʟᴛᴇᴅ...**")
+                await asyncio.sleep(5)
+                await temp.delete()
+                
+                return
+            
+            await re_post_messages(client, message, bot_username, posted_msgs, new_msgs)
+            
+            return
+
