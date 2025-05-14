@@ -8,7 +8,17 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.enums import ParseMode, ChatAction
 from config import Config as cfg
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto, ReplyKeyboardMarkup, ReplyKeyboardRemove, CallbackQuery
+
+@Bot.on_callback_query(filters.regex("close"))
+async def close_cbq(client: Bot, query: CallbackQuery):
+    
+    await query.message.delete()
+    try:
+        await query.message.reply_to_message.delete()
+    except:
+        pass
+    
 
 CLOSE_BUTTON = InlineKeyboardButton("🔒 ᴄʟᴏsᴇ", "close")
 CLOSE_MARKUP = InlineKeyboardMarkup([[CLOSE_BUTTON]])
