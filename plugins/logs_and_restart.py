@@ -42,7 +42,7 @@ async def restart_bot():
 
     try:        
         # Restart the bot
-        args = [sys.executable, "bot.py"]
+        args = [sys.executable, "main.py"]
         os.execl(sys.executable, *args)
 
     except Exception as e:
