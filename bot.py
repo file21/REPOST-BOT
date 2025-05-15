@@ -117,4 +117,5 @@ class Bot(Client):
     
 
 if __name__ == "__main__":
+    print("Initiated....")
     Bot().run()

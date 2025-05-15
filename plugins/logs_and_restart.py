@@ -7,7 +7,7 @@ import sys
 import subprocess
 import aiofiles
 from bot import Bot
-from pyrogram import Client, filters
+from pyrogram import Client, filters #type: ignore
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto
 from config import Config as cfg
 from pyrogram.enums import ParseMode, ChatAction
