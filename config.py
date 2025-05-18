@@ -11,7 +11,7 @@ id_pattern = re.compile(r"^(\d{9,10}(\s\d{9,10})*)?$")
 
 class Config:
     #Bot token @Botfather, --⚠️ REQUIRED--
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1803592087:AAEq6XuYbtp2gu24ngvLZowbNl1E5MI5fYY")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "1803592087:AAG7ttK73gKf75ILsMtVPb5KmZI0ekRU0To")
 
     #Your API ID from my.telegram.org, --⚠️ REQUIRED--
     APP_ID = int(os.environ.get("APP_ID", "29695456"))
